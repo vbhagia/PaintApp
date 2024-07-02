@@ -15,21 +15,24 @@ public class DrawPanel extends JPanel {
 	public DrawPanel() {
 		setBackground(new Color(176, 250, 192));
 	}
-	
+
 	@Override
 	public void paintComponent(Graphics g) {
-		System.out.println("Tell your boss to repaint. DOING!");
-		
+		System.out.println("Telling boss to repaint");
 		super.paintComponents(g);
-		g.setColor(new Color(176, 250, 192));
-		g.fillRect(0, 0, getWidth(), getHeight());
-		g.setColor(Officer.getColor());
+		g.setColor(new Color(176,250, 192));
+		g.fillRect(0,0, getWidth(), getHeight());
+
+		for (int i = 0; i < Officer.getShapeStack().size(); i++) {
+			Officer.getShapeStack().get(i).draw(g);
+		}
+
 		if (Officer.getShape().equals("Rectangle")) {
-			g.fillRect(Officer.getX(), Officer.getY(), Officer.getWidth(), Officer.getHeight());
+			Officer.getRectOutline().draw(g);
 		} else if (Officer.getShape().equals("Circle")) {
-			g.fillOval(Officer.getX(), Officer.getY(), Officer.getWidth(), Officer.getHeight());
-		} else {
-			g.fillArc(Officer.getX(), Officer.getY(), Officer.getWidth(), Officer.getHeight(), 0, 180);
+			Officer.getCircleOutline().draw(g);
+		} else if (Officer.getShape().equals("Arc")) {
+			Officer.getArcOutline().draw(g);
 		}
 	}
 	

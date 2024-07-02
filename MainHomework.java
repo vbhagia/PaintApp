@@ -2,6 +2,7 @@ package javiergs.gui.paint.gamma;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 /**
  * MainHomework creates a frame and adds three panels to it.
@@ -26,6 +27,7 @@ public class MainHomework extends JFrame {
 		JPanel drawPanel = new DrawPanel();
 		MouseNanny mouseNanny = new MouseNanny(); // new line compared to version 1.0
 		drawPanel.addMouseListener(mouseNanny); // new line compared to version 1.0
+		drawPanel.addMouseMotionListener(mouseNanny);
 		Officer.setDrawPanel(drawPanel); // new line compared to version 2.0
 		//JPanel toolPanel = new ToolPanel();
 		//JPanel statusPanel = new StatusPanel();
