@@ -2,9 +2,9 @@ package javiergs.gui.paint.gamma;
 
 import javax.swing.*;
 
-public class StatusMenu extends JMenu{
+public class StatusMenu extends JMenuBar{
     public StatusMenu(String name){
-        JLabel statusLabel = new JLabel(name);
+        JMenu status = new JMenu(name);
 
         ActionNanny actionNanny = new ActionNanny();
 
@@ -17,9 +17,11 @@ public class StatusMenu extends JMenu{
         JMenuItem eraseButton = new JMenuItem("Erase");
         eraseButton.addActionListener(actionNanny);
 
-        add(statusLabel);
-        add(redoButton);
-        add(undoButton);
-        add(eraseButton);
+        status.add(redoButton);
+        status.add(undoButton);
+        status.add(eraseButton);
+
+        add(status);
+
     }
 }

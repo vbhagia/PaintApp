@@ -36,7 +36,7 @@ public class MainHomework extends JFrame {
 		//add(statusPanel, BorderLayout.SOUTH);
 		//add(drawPanel);
 
-		MenuBar menuBar = new MenuBar("Menu Bar");
+		MenuBar menuBar = new MenuBar();
 		add(menuBar);
 		setJMenuBar(menuBar);
 		add(drawPanel);

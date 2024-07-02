@@ -5,9 +5,8 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class ToolMenu extends JMenu{
-    public ToolMenu(String name){
-        JLabel toolLabel = new JLabel(name);
+public class ToolMenu extends JMenuBar{
+    public ToolMenu(){
         ActionNanny actionNanny = new ActionNanny();
 
         JMenu Colors = new JMenu("Colors");
@@ -36,22 +35,19 @@ public class ToolMenu extends JMenu{
         Colors.add(o);
         Colors.add(p);
 
-
         JCheckBoxMenuItem rect = new JCheckBoxMenuItem("Rectangle");
         rect.addActionListener(actionNanny);
         JCheckBoxMenuItem circle = new JCheckBoxMenuItem("Circle");
         circle.addActionListener(actionNanny);
         JCheckBoxMenuItem arc = new JCheckBoxMenuItem("Arc");
         arc.addActionListener(actionNanny);
-        
+
         Shapes.add(rect);
         Shapes.add(circle);
         Shapes.add(arc);
 
-        add(toolLabel);
-        add(Colors);
         add(Shapes);
-
+        add(Colors);
 
     }
 }
