@@ -2,6 +2,7 @@ package javiergs.gui.paint.gamma;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Stack;
 
 /**
  * Officer is a class that holds the data of the drawing application.
@@ -14,11 +15,11 @@ public class Officer {
 	
 	private static Color color;
 	private static String shape;
-	private static int x;
-	private static int y;
-	private static int width;
-	private static int height;
 	private static JPanel drawPanel;
+	private static Stack<Shape> shapes = new Stack<Shape>();
+	private static RectOutline rectOutline = new RectOutline();
+	private static CircleOutline circleOutline = new CircleOutline();
+	private static ArcOutline arcOutline = new ArcOutline();
 	
 	public static Color getColor() {
 		return color==null?Color.BLACK:color;
@@ -36,38 +37,6 @@ public class Officer {
 		Officer.shape = shape;
 	}
 	
-	public static int getX() {
-		return x;
-	}
-	
-	public static void setX(int x) {
-		Officer.x = x;
-	}
-	
-	public static int getY() {
-		return y;
-	}
-	
-	public static void setY(int y) {
-		Officer.y = y;
-	}
-	
-	public static int getWidth() {
-		return width;
-	}
-	
-	public static void setWidth(int width) {
-		Officer.width = width;
-	}
-	
-	public static int getHeight() {
-		return height;
-	}
-	
-	public static void setHeight(int height) {
-		Officer.height = height;
-	}
-	
 	public static void tellYourBoss() {
 		drawPanel.repaint();
 		System.out.println("Tell your boss to repaint.");
@@ -76,5 +45,24 @@ public class Officer {
 	public static void setDrawPanel(JPanel d) {
 		drawPanel = d;
 	}
-	
+
+	public static Stack<Shape> getShapeStack() { return shapes;	}
+
+	public static void setRectOutline(RectOutline roIn) { rectOutline = roIn; }
+
+	public static RectOutline getRectOutline() {
+		return rectOutline;
+	}
+
+	public static void setCircleOutline(CircleOutline coIn) { circleOutline = coIn; }
+
+	public static CircleOutline getCircleOutline() {
+		return circleOutline;
+	}
+
+	public static void setArcOutline(ArcOutline aoIn) { arcOutline = aoIn; }
+
+	public static ArcOutline getArcOutline() {
+		return arcOutline;
+	}
 }
