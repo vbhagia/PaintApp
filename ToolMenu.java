@@ -27,6 +27,15 @@ public class ToolMenu extends JMenuBar{
         JRadioButtonMenuItem p = new JRadioButtonMenuItem("Pink");
         p.addActionListener(actionNanny);
 
+        ButtonGroup buttongroup = new ButtonGroup();
+        buttongroup.add(blk);
+        buttongroup.add(r);
+        buttongroup.add(b);
+        buttongroup.add(g);
+        buttongroup.add(y);
+        buttongroup.add(o);
+        buttongroup.add(p);
+
         Colors.add(blk);
         Colors.add(r);
         Colors.add(b);
@@ -35,12 +44,17 @@ public class ToolMenu extends JMenuBar{
         Colors.add(o);
         Colors.add(p);
 
-        JCheckBoxMenuItem rect = new JCheckBoxMenuItem("Rectangle");
+        JRadioButtonMenuItem rect = new JRadioButtonMenuItem("Rectangle");
         rect.addActionListener(actionNanny);
-        JCheckBoxMenuItem circle = new JCheckBoxMenuItem("Circle");
+        JRadioButtonMenuItem circle = new JRadioButtonMenuItem("Circle");
         circle.addActionListener(actionNanny);
-        JCheckBoxMenuItem arc = new JCheckBoxMenuItem("Arc");
+        JRadioButtonMenuItem arc = new JRadioButtonMenuItem("Arc");
         arc.addActionListener(actionNanny);
+
+        ButtonGroup shapeGroup = new ButtonGroup();
+        shapeGroup.add(rect);
+        shapeGroup.add(circle);
+        shapeGroup.add(arc);
 
         Shapes.add(rect);
         Shapes.add(circle);
