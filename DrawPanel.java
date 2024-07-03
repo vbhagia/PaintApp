@@ -11,20 +11,25 @@ import java.awt.*;
  * @version 3.0
  */
 public class DrawPanel extends JPanel {
-	
+
 	public DrawPanel() {
 		setBackground(new Color(176, 250, 192));
 	}
 
 	@Override
-	public void paintComponent(Graphics g) {
+	protected void paintComponent(Graphics g) {
 		System.out.println("Telling boss to repaint");
-		super.paintComponents(g);
-		g.setColor(new Color(176,250, 192));
-		g.fillRect(0,0, getWidth(), getHeight());
+		super.paintComponent(g);
+		g.setColor(new Color(176, 250, 192));
+		g.fillRect(0, 0, getWidth(), getHeight());
 
-		for (int i = 0; i < Officer.getShapeStack().size(); i++) {
-			Officer.getShapeStack().get(i).draw(g);
+		for (Shape shape : Officer.getShapeStack()) {
+			if (shape instanceof ClearAction) {
+				g.setColor(new Color(176, 250, 192));
+				g.fillRect(0, 0, getWidth(), getHeight());
+			} else {
+				shape.draw(g);
+			}
 		}
 
 		if (Officer.getShape().equals("Rectangle")) {
@@ -35,5 +40,4 @@ public class DrawPanel extends JPanel {
 			Officer.getArcOutline().draw(g);
 		}
 	}
-	
 }
