@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  * @version 2.0
  */
 public class ActionNanny implements ActionListener {
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() instanceof JRadioButtonMenuItem colorBox) {
@@ -34,7 +34,12 @@ public class ActionNanny implements ActionListener {
 			}
 		} else if (e.getSource() instanceof JCheckBoxMenuItem) {
 			Officer.setShape(e.getActionCommand());
+		} else if (e.getActionCommand().equals("Undo")) {
+			Officer.undo();
+		} else if (e.getActionCommand().equals("Redo")) {
+			Officer.redo();
+		} else if (e.getActionCommand().equals("Erase")) {
+			Officer.clear();
 		}
 	}
-	
 }
