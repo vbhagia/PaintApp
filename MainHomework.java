@@ -4,13 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- * MainHomework creates a frame and adds three panels to it.
- * This version adds MouseListener to the DrawPanel.
- *
- * @author javiergs
- * @version 2.0
- */
+
+ /** @author Nashali Vicente Lopez
+  * @author  Grant Robinson
+  * @author Veer Bhagia **/
 public class MainHomework extends JFrame {
 	
 	public static void main(String[] args) {
