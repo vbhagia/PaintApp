@@ -38,8 +38,9 @@ public class ActionNanny implements ActionListener {
 			Officer.undo();
 		} else if (e.getActionCommand().equals("Redo")) {
 			Officer.redo();
-		} else if (e.getActionCommand().equals("Erase")) {
+		} else if (e.getActionCommand().equals("Clear")) {
 			Officer.clear();
 		}
 	}
 }
+

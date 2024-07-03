@@ -14,15 +14,11 @@ public class StatusMenu extends JMenuBar {
         JMenuItem undoButton = new JMenuItem("Undo");
         undoButton.addActionListener(actionNanny);
 
-        JMenuItem eraseButton = new JMenuItem("Erase");
-        eraseButton.addActionListener(actionNanny);
-
         JMenuItem clearButton = new JMenuItem("Clear");
-        clearButton.addActionListener(e -> Officer.clear());
+        clearButton.addActionListener(actionNanny);
 
         status.add(redoButton);
         status.add(undoButton);
-        status.add(eraseButton);
         status.add(clearButton);
 
         add(status);
