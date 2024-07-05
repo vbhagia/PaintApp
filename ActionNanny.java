@@ -5,13 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * ActionNanny listens for action events.
- * Send information to Officer.
- *
- * @author javiergs
- * @version 2.0
- */
+/** @author Nashali Vicente **/
 public class ActionNanny implements ActionListener {
 
 	@Override

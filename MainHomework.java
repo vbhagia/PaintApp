@@ -3,9 +3,7 @@ import javax.swing.*;
 import javax.tools.Tool;
 
 
-/** @author Nashali Vicente Lopez
-  * @author  Grant Robinson
-  * @author Veer Bhagia **/
+/** @author Nashali Vicente Lopez **/
 public class MainHomework extends JFrame {
 	
 	public static void main(String[] args) {
