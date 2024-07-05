@@ -1,9 +1,8 @@
 package javiergs.gui.paint.gamma;
 
 import javax.swing.*;
-import java.awt.*;
-import java.util.Arrays;
-import java.util.Stack;
+
+/** @author Nashali Vicente Lopez**/
 
 public class ToolMenu extends JMenuBar{
     public ToolMenu(){
