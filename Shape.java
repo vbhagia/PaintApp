@@ -26,6 +26,10 @@ public class Shape {
         System.out.println("Shape draw");
     }
 
+    public void drawOutline(Graphics g) {
+        System.out.println("Shape draw");
+    }
+
     public Color getColor() {
         return color==null?Color.BLACK:color;
     }

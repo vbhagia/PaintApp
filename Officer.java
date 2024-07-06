@@ -17,9 +17,7 @@ public class Officer {
 	private static JPanel drawPanel;
 	private static Stack<Shape> shapes = new Stack<>();
 	private static Stack<Shape> undoneShapes = new Stack<>();
-	private static RectOutline rectOutline = new RectOutline();
-	private static CircleOutline circleOutline = new CircleOutline();
-	private static ArcOutline arcOutline = new ArcOutline();
+	private static int[] shapeParameters = new int[4];
 
 	public static Color getColor() {
 		return color == null ? Color.BLACK : color;
@@ -50,28 +48,21 @@ public class Officer {
 		return shapes;
 	}
 
-	public static void setRectOutline(RectOutline roIn) {
-		rectOutline = roIn;
+	public static int[] getShapeParameters() {
+		return shapeParameters;
 	}
 
-	public static RectOutline getRectOutline() {
-		return rectOutline;
+	public static void setShapeParameters(int[] p) {
+		if (p.length != 4) {
+			System.out.println("Invalid parameter input");
+		} else {
+			shapeParameters = p;
+		}
 	}
 
-	public static void setCircleOutline(CircleOutline coIn) {
-		circleOutline = coIn;
-	}
-
-	public static CircleOutline getCircleOutline() {
-		return circleOutline;
-	}
-
-	public static void setArcOutline(ArcOutline aoIn) {
-		arcOutline = aoIn;
-	}
-
-	public static ArcOutline getArcOutline() {
-		return arcOutline;
+	public static void clearShapeParameters() {
+		int[] p = {0, 0, 0, 0};
+		shapeParameters = p;
 	}
 
 	public static void clear() {

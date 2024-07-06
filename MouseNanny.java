@@ -11,34 +11,54 @@ public class MouseNanny implements MouseListener, MouseMotionListener {
 	}
 
 	public void mouseReleased(MouseEvent e){
-		int x = e.getX();
-		int y = e.getY();
+		int[] p = Officer.getShapeParameters();
 		if (Officer.getShape().equals("Rectangle")) {
-			Officer.getShapeStack().push(new Rectangle(tmpx, tmpy, x - tmpx, y - tmpy, Officer.getColor(), Officer.getShape()));
+			Officer.getShapeStack().push(new Rectangle(p[0], p[1], p[2], p[3], Officer.getColor(), Officer.getShape()));
 		} else if (Officer.getShape().equals("Circle")) {
-			Officer.getShapeStack().push(new Circle(tmpx, tmpy, x - tmpx, y - tmpy, Officer.getColor(), Officer.getShape()));
+			Officer.getShapeStack().push(new Circle(p[0], p[1], p[2], p[3], Officer.getColor(), Officer.getShape()));
 		} else if (Officer.getShape().equals("Arc")) {
-			Officer.getShapeStack().push(new Arc(tmpx, tmpy, x - tmpx, y - tmpy, Officer.getColor(), Officer.getShape()));
+			Officer.getShapeStack().push(new Arc(p[0], p[1], p[2], p[3], Officer.getColor(), Officer.getShape()));
 		} else {
 			System.out.println("Bad Shape name");
 		}
-		Officer.setRectOutline(new RectOutline(0, 0, 0, 0, Officer.getColor(), "Box"));
-		Officer.setCircleOutline(new CircleOutline(0, 0, 0, 0, Officer.getColor(), "CircleOutline"));
-		Officer.setArcOutline(new ArcOutline(0, 0, 0, 0, Officer.getColor(), "ArcOutline"));
+		Officer.clearShapeParameters();
 		Officer.tellYourBoss();
 	}
 
 	public void mouseDragged(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
-		if (Officer.getShape().equals("Rectangle")) {
-			Officer.setRectOutline(new RectOutline(tmpx, tmpy, x - tmpx, y - tmpy, Officer.getColor(), "Box"));
-		} else if (Officer.getShape().equals("Circle")) {
-			Officer.setCircleOutline(new CircleOutline(tmpx, tmpy, x - tmpx, y - tmpy, Officer.getColor(), "CircleOutline"));
-		} else if (Officer.getShape().equals("Arc")) {
-			Officer.setArcOutline(new ArcOutline(tmpx, tmpy, x - tmpx, y - tmpy, Officer.getColor(), "ArcOutline"));
-		}
+		int[] p = calculateShapeParameters(x, y);
+		Officer.setShapeParameters(p);
 		Officer.tellYourBoss();
+	}
+
+	private int[] calculateShapeParameters(int x, int y) {
+		int[] parameters = new int[4];
+		Boolean isRight = (x - tmpx) > 0;
+		Boolean isDown = (y - tmpy) > 0;
+		if (isRight && isDown) {
+			parameters[0] = tmpx;
+			parameters[1] = tmpy;
+			parameters[2] = x - tmpx;
+			parameters[3] = y - tmpy;
+		} else if (isRight && !isDown) {
+			parameters[0] = tmpx;
+			parameters[1] = y;
+			parameters[2] = x - tmpx;
+			parameters[3] = tmpy - y;
+		} else if (!isRight && isDown) {
+			parameters[0] = x;
+			parameters[1] = tmpy;
+			parameters[2] = tmpx - x;
+			parameters[3] = y - tmpy;
+		} else if (!isRight && !isDown) {
+			parameters[0] = x;
+			parameters[1] = y;
+			parameters[2] = tmpx - x;
+			parameters[3] = tmpy - y;
+		}
+		return parameters;
 	}
 
 	public void mouseClicked(MouseEvent e) {}

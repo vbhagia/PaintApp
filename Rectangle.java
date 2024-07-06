@@ -10,7 +10,17 @@ public class Rectangle extends Shape {
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(getColor());
-        g.fillRect(getX(), getY(), getWidth(), getHeight());
+        if ((getWidth() != 0) && (getHeight() != 0)) {
+            g.setColor(getColor());
+            g.fillRect(getX(), getY(), getWidth(), getHeight());
+        }
+    }
+
+    @Override
+    public void drawOutline(Graphics g) {
+        if ((getWidth() != 0) && (getHeight() != 0)) {
+            g.setColor(getColor());
+            g.drawRect(getX(), getY(), getWidth(), getHeight());
+        }
     }
 }
