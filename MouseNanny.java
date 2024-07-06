@@ -35,27 +35,19 @@ public class MouseNanny implements MouseListener, MouseMotionListener {
 
 	private int[] calculateShapeParameters(int x, int y) {
 		int[] parameters = new int[4];
-		Boolean isRight = (x - tmpx) > 0;
-		Boolean isDown = (y - tmpy) > 0;
-		if (isRight && isDown) {
+		if ((x - tmpx) > 0) {
 			parameters[0] = tmpx;
-			parameters[1] = tmpy;
 			parameters[2] = x - tmpx;
-			parameters[3] = y - tmpy;
-		} else if (isRight && !isDown) {
-			parameters[0] = tmpx;
-			parameters[1] = y;
-			parameters[2] = x - tmpx;
-			parameters[3] = tmpy - y;
-		} else if (!isRight && isDown) {
+		} else {
 			parameters[0] = x;
+			parameters[2] = tmpx - x;
+		}
+
+		if ((y - tmpy) > 0) {
 			parameters[1] = tmpy;
-			parameters[2] = tmpx - x;
 			parameters[3] = y - tmpy;
-		} else if (!isRight && !isDown) {
-			parameters[0] = x;
+		} else {
 			parameters[1] = y;
-			parameters[2] = tmpx - x;
 			parameters[3] = tmpy - y;
 		}
 		return parameters;
