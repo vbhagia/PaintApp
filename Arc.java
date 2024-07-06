@@ -10,7 +10,17 @@ public class Arc extends Shape {
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(getColor());
-        g.fillArc(getX(), getY(), getWidth(), getHeight(), 0, 180);
+        if ((getWidth() != 0) && (getHeight() != 0)) {
+            g.setColor(getColor());
+            g.fillArc(getX(), getY(), getWidth(), getHeight(), 0, 180);
+        }
+    }
+
+    @Override
+    public void drawOutline(Graphics g) {
+        if ((getWidth() != 0) && (getHeight() != 0)) {
+            g.setColor(getColor());
+            g.drawArc(getX(), getY(), getWidth(), getHeight(), 0, 180);
+        }
     }
 }
