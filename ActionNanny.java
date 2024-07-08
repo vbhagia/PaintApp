@@ -31,6 +31,8 @@ public class ActionNanny implements ActionListener {
 				Officer.setShape("Circle");
 			} else if (colorBox.getActionCommand().equals("Arc")){
 				Officer.setShape("Arc");
+			} else if (colorBox.getActionCommand().equals("Line")){
+				Officer.setShape("Line");
 			}
 		} else if (e.getActionCommand().equals("Undo")) {
 			Officer.undo();

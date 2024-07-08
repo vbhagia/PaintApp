@@ -18,6 +18,8 @@ public class MouseNanny implements MouseListener, MouseMotionListener {
 			Officer.getShapeStack().push(new Circle(p[0], p[1], p[2], p[3], Officer.getColor(), Officer.getShape()));
 		} else if (Officer.getShape().equals("Arc")) {
 			Officer.getShapeStack().push(new Arc(p[0], p[1], p[2], p[3], Officer.getColor(), Officer.getShape()));
+		} else if (Officer.getShape().equals("Line")){
+			Officer.getShapeStack().push(new Line(p[0], p[1], p[2], p[3], Officer.getColor(), Officer.getShape()));
 		} else {
 			System.out.println("Bad Shape name");
 		}
@@ -53,7 +55,9 @@ public class MouseNanny implements MouseListener, MouseMotionListener {
 		return parameters;
 	}
 
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {
+
+	}
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
 	public void mouseMoved(MouseEvent e) {}

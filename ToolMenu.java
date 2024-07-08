@@ -48,15 +48,19 @@ public class ToolMenu extends JMenuBar{
         circle.addActionListener(actionNanny);
         JRadioButtonMenuItem arc = new JRadioButtonMenuItem("Arc");
         arc.addActionListener(actionNanny);
+        JRadioButtonMenuItem line = new JRadioButtonMenuItem("Line");
+        line.addActionListener(actionNanny);
 
         ButtonGroup shapeGroup = new ButtonGroup();
         shapeGroup.add(rect);
         shapeGroup.add(circle);
         shapeGroup.add(arc);
+        shapeGroup.add(line);
 
         Shapes.add(rect);
         Shapes.add(circle);
         Shapes.add(arc);
+        Shapes.add(line);
 
         add(Shapes);
         add(Colors);
