@@ -2,13 +2,17 @@ package javiergs.gui.paint.gamma;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Stack;
 
 /**
  * Officer is a class that holds the data of the drawing application.
  * And communicates to the DrawPanel when a repaint is needed.
  *
- * @author javiergs
+ * @author Nashali Vicente Lopez
+ * @author Veer Bhagia
+ * @author Grant Robinson
  * @version 1.0
  */
 public class Officer {
@@ -42,6 +46,10 @@ public class Officer {
 
 	public static void setDrawPanel(JPanel d) {
 		drawPanel = d;
+	}
+
+	public static JPanel getDrawPanel() {
+		return drawPanel;
 	}
 
 	public static Stack<Shape> getShapeStack() {
@@ -95,5 +103,14 @@ public class Officer {
 			}
 			tellYourBoss();
 		}
+	}
+
+	public static void save(File file) throws IOException {
+		FileHandler.save(drawPanel, file);
+	}
+
+	public static void load(File file) throws IOException {
+		FileHandler.load(drawPanel, file);
+		tellYourBoss();
 	}
 }
