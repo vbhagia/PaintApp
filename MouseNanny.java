@@ -3,9 +3,9 @@ package javiergs.gui.paint.gamma;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Map;
 import java.util.Stack;
 
+/** @author Nashali Vicente Lopez **/
 public class MouseNanny implements MouseListener, MouseMotionListener {
 	int tmpx, tmpy;
 	private Shape selectedShape = null;

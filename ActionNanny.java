@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/** @author Nashali Vicente **/
+/** @author Nashali Vicente Lopez**/
 public class ActionNanny implements ActionListener {
 
 	@Override
