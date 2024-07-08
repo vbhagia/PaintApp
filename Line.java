@@ -1,10 +1,8 @@
 package javiergs.gui.paint.gamma;
-
 import java.awt.*;
 
-public class Circle extends Shape {
-
-    public Circle(int x, int y, int width, int height, Color color, String shapeName){
+public class Line extends Shape{
+    public Line(int x, int y, int width, int height, Color color, String shapeName){
         super(x, y, width, height, color, shapeName);
     }
 
@@ -12,7 +10,7 @@ public class Circle extends Shape {
     public void draw(Graphics g) {
         if ((getWidth() != 0) && (getHeight() != 0)) {
             g.setColor(getColor());
-            g.fillOval(getX(), getY(), getWidth(), getHeight());
+            g.drawLine(getX(), getY(), getX() + getWidth(), getY() + getHeight());
         }
     }
 
@@ -20,7 +18,7 @@ public class Circle extends Shape {
     public void drawOutline(Graphics g) {
         if ((getWidth() != 0) && (getHeight() != 0)) {
             g.setColor(getColor());
-            g.drawOval(getX(), getY(), getWidth(), getHeight());
+            g.drawLine(getX(), getY(), getX() + getWidth(), getY() + getHeight());
         }
     }
 }

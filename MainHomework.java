@@ -1,16 +1,9 @@
 package javiergs.gui.paint.gamma;
-
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.tools.Tool;
 
-/**
- * MainHomework creates a frame and adds three panels to it.
- * This version adds MouseListener to the DrawPanel.
- *
- * @author javiergs
- * @version 2.0
- */
+
+/** @author Nashali Vicente Lopez **/
 public class MainHomework extends JFrame {
 	
 	public static void main(String[] args) {
@@ -25,18 +18,16 @@ public class MainHomework extends JFrame {
 	
 	public MainHomework() {
 		JPanel drawPanel = new DrawPanel();
-		MouseNanny mouseNanny = new MouseNanny(); // new line compared to version 1.0
-		drawPanel.addMouseListener(mouseNanny); // new line compared to version 1.0
+		MouseNanny mouseNanny = new MouseNanny();
+		drawPanel.addMouseListener(mouseNanny);
 		drawPanel.addMouseMotionListener(mouseNanny);
-		Officer.setDrawPanel(drawPanel); // new line compared to version 2.0
-		//JPanel toolPanel = new ToolPanel();
-		//JPanel statusPanel = new StatusPanel();
-		//setLayout(new BorderLayout());
-		//add(toolPanel, BorderLayout.WEST);
-		//add(statusPanel, BorderLayout.SOUTH);
-		//add(drawPanel);
+		Officer.setDrawPanel(drawPanel);
 
-		MenuBar menuBar = new MenuBar();
+		JMenuBar menuBar = new JMenuBar();
+		StatusMenu statusMenu = new StatusMenu("Status");
+		ToolMenu toolMenu = new ToolMenu();
+		menuBar.add(statusMenu);
+		menuBar.add(toolMenu);
 		add(menuBar);
 		setJMenuBar(menuBar);
 		add(drawPanel);

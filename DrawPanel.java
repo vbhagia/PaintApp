@@ -33,11 +33,21 @@ public class DrawPanel extends JPanel {
 		}
 
 		if (Officer.getShape().equals("Rectangle")) {
-			Officer.getRectOutline().draw(g);
+			int[] p = Officer.getShapeParameters();
+			Rectangle rect = new Rectangle(p[0], p[1], p[2], p[3], Officer.getColor(), "Rectangle");
+			rect.drawOutline(g);
 		} else if (Officer.getShape().equals("Circle")) {
-			Officer.getCircleOutline().draw(g);
+			int[] p = Officer.getShapeParameters();
+			Circle circ = new Circle(p[0], p[1], p[2], p[3], Officer.getColor(), "Circle");
+			circ.drawOutline(g);
 		} else if (Officer.getShape().equals("Arc")) {
-			Officer.getArcOutline().draw(g);
+			int[] p = Officer.getShapeParameters();
+			Arc arc = new Arc(p[0], p[1], p[2], p[3], Officer.getColor(), "Arc");
+			arc.drawOutline(g);
+		} else if (Officer.getShape().equals("Line")) {
+			int[] p = Officer.getShapeParameters();
+			Line line = new Line(p[0], p[1], p[2], p[3], Officer.getColor(), "Line");
+			line.drawOutline(g);
 		}
 	}
 }

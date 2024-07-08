@@ -5,13 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * ActionNanny listens for action events.
- * Send information to Officer.
- *
- * @author javiergs
- * @version 2.0
- */
+/** @author Nashali Vicente **/
 public class ActionNanny implements ActionListener {
 
 	@Override
@@ -31,9 +25,15 @@ public class ActionNanny implements ActionListener {
 				Officer.setColor(Color.ORANGE);
 			} else if (colorBox.getActionCommand().equals("Pink")) {
 				Officer.setColor(Color.PINK);
+			} else if (colorBox.getActionCommand().equals("Rectangle")){
+				Officer.setShape("Rectangle");
+			} else if (colorBox.getActionCommand().equals("Circle")){
+				Officer.setShape("Circle");
+			} else if (colorBox.getActionCommand().equals("Arc")){
+				Officer.setShape("Arc");
+			} else if (colorBox.getActionCommand().equals("Line")){
+				Officer.setShape("Line");
 			}
-		} else if (e.getSource() instanceof JCheckBoxMenuItem) {
-			Officer.setShape(e.getActionCommand());
 		} else if (e.getActionCommand().equals("Undo")) {
 			Officer.undo();
 		} else if (e.getActionCommand().equals("Redo")) {
