@@ -3,6 +3,7 @@ package javiergs.gui.paint.gamma;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Map;
 import java.util.Stack;
 
 public class MouseNanny implements MouseListener, MouseMotionListener {
@@ -55,20 +56,16 @@ public class MouseNanny implements MouseListener, MouseMotionListener {
 
 	private int[] calculateShapeParameters(int x, int y) {
 		int[] parameters = new int[4];
-		if ((x - tmpx) > 0) {
+		if(Officer.getShape().equals("Line")){
 			parameters[0] = tmpx;
-			parameters[2] = x - tmpx;
-		} else {
-			parameters[0] = x;
-			parameters[2] = tmpx - x;
-		}
-
-		if ((y - tmpy) > 0) {
 			parameters[1] = tmpy;
+			parameters[2] = x - tmpx;
 			parameters[3] = y - tmpy;
-		} else {
-			parameters[1] = y;
-			parameters[3] = tmpy - y;
+		}else {
+			parameters[0] = Math.min(tmpx, x);
+			parameters[1] = Math.min(tmpy, y);
+			parameters[2] = Math.abs(x - tmpx);
+			parameters[3] = Math.abs(y - tmpy);
 		}
 		return parameters;
 	}
