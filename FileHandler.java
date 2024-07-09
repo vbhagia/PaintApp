@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/** @author Veer Bhagia **/
+
 public class FileHandler {
 
     public static void save(JPanel drawPanel, File file) throws IOException {

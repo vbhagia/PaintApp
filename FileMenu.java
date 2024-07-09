@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+/** @author Veer Bhagia **/
+
 public class FileMenu extends JMenu implements ActionListener {
     private final JFrame parent;
 
