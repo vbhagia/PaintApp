@@ -3,13 +3,9 @@ package javiergs.gui.paint.gamma;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * DrawPanel creates a panel where the drawing is done.
- * According to the data in Officer.
- *
- * @author javiergs
- * @version 3.0
- */
+/** @author Grant Robinson **/
+/** @author Veer Bhagia **/
+
 public class DrawPanel extends JPanel {
 
 	public DrawPanel() {

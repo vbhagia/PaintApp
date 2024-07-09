@@ -6,6 +6,8 @@ import java.awt.event.*;
 import java.util.Stack;
 
 /** @author Nashali Vicente Lopez **/
+/** @author Grant Robinson **/
+
 public class MouseNanny implements MouseListener, MouseMotionListener {
 	int tmpx, tmpy;
 	private Shape selectedShape = null;
@@ -18,6 +20,7 @@ public class MouseNanny implements MouseListener, MouseMotionListener {
 
 		selectedShape = getShapeAt(e.getX(), e.getY());
 		if (selectedShape != null){
+			Officer.setSelectedShape(selectedShape);
 			offsetX = tmpx - selectedShape.getX();
 			offsetY = tmpy -selectedShape.getY();
 		}

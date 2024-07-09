@@ -2,6 +2,8 @@ package javiergs.gui.paint.gamma;
 
 import java.awt.*;
 
+/** @author Grant Robinson **/
+
 public class Rectangle extends Shape {
 
     public Rectangle(int x, int y, int width, int height, Color color, String shapeName){
