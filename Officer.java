@@ -45,6 +45,10 @@ public class Officer {
 		drawPanel = d;
 	}
 
+	public static JPanel getDrawPanel() {
+		return drawPanel;
+	}
+
 	public static Stack<Shape> getShapeStack() {
 		return shapes;
 	}
