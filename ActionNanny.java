@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /** @author Nashali Vicente Lopez**/
+
 public class ActionNanny implements ActionListener {
 
 	@Override
@@ -38,8 +39,12 @@ public class ActionNanny implements ActionListener {
 			Officer.undo();
 		} else if (e.getActionCommand().equals("Redo")) {
 			Officer.redo();
-		} else if (e.getActionCommand().equals("Erase")) {
+		} else if (e.getActionCommand().equals("Clear")) {
 			Officer.clear();
+		} else if (e.getActionCommand().equals("Copy")) {
+			Officer.copyShape(Officer.getSelectedShape());
+		} else if (e.getActionCommand().equals("Paste")) {
+			Officer.pasteShape();
 		}
 	}
 }

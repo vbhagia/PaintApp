@@ -2,6 +2,8 @@ package javiergs.gui.paint.gamma;
 
 import java.awt.*;
 
+/** @author Grant Robinson **/
+
 public class Shape {
     private String shapeName;
     private Color color;

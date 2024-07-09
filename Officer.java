@@ -4,13 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Stack;
 
-/**
- * Officer is a class that holds the data of the drawing application.
- * And communicates to the DrawPanel when a repaint is needed.
- *
- * @author javiergs
- * @version 1.0
- */
+/** @author Nashali Vicente Lopez **/
+/** @author Grant Robinson **/
+/** @author Veer Bhagia **/
+
 public class Officer {
 	private static Color color;
 	private static String shape;
@@ -18,6 +15,10 @@ public class Officer {
 	private static Stack<Shape> shapes = new Stack<>();
 	private static Stack<Shape> undoneShapes = new Stack<>();
 	private static int[] shapeParameters = new int[4];
+	private static Shape selectedShape = new Shape();
+	private static Shape shapeCopy = new Shape();
+	private static Shape shapePaste = new Shape();
+	private static final int COPY_OFFSET = 10;
 
 	public static Color getColor() {
 		return color == null ? Color.BLACK : color;
@@ -94,6 +95,60 @@ public class Officer {
 				}
 			}
 			tellYourBoss();
+		}
+	}
+
+	public static void setSelectedShape(Shape s) {
+		selectedShape = s;
+		System.out.println("setSelectedShape " + selectedShape.getShape() + " width: " + selectedShape.getWidth() + " height: " + selectedShape.getHeight());
+	}
+
+	public static Shape getSelectedShape() {
+		System.out.println("getSelectedShape");
+		return selectedShape;
+	}
+
+	public static void copyShape(Shape s) {
+		if (s != null) {
+			if ((s.getWidth() > 0) && (s.getHeight() > 0)) {
+				if (Officer.getShape().equals("Rectangle")) {
+					shapeCopy = new Rectangle(s.getX(), s.getY(),
+							s.getWidth(), s.getHeight(), s.getColor(), s.getShape());
+				} else if (Officer.getShape().equals("Circle")) {
+					shapeCopy = new Circle(s.getX(), s.getY(),
+							s.getWidth(), s.getHeight(), s.getColor(), s.getShape());
+				} else if (Officer.getShape().equals("Arc")) {
+					shapeCopy = new Arc(s.getX(), s.getY(),
+							s.getWidth(), s.getHeight(), s.getColor(), s.getShape());
+				} else if (Officer.getShape().equals("Line")) {
+					shapeCopy = new Line(s.getX(), s.getY(),
+							s.getWidth(), s.getHeight(), s.getColor(), s.getShape());
+				}
+			}
+		}
+	}
+
+	public static void pasteShape() {
+		if (shapeCopy != null) {
+			if (Officer.getShape().equals("Rectangle")) {
+				shapePaste = new Rectangle(shapeCopy.getX() + COPY_OFFSET, shapeCopy.getY() + COPY_OFFSET,
+						shapeCopy.getWidth(), shapeCopy.getHeight(), shapeCopy.getColor(), shapeCopy.getShape());
+			} else if (Officer.getShape().equals("Circle")) {
+				shapePaste = new Circle(shapeCopy.getX() + COPY_OFFSET, shapeCopy.getY() + COPY_OFFSET,
+						shapeCopy.getWidth(), shapeCopy.getHeight(), shapeCopy.getColor(), shapeCopy.getShape());
+			} else if (Officer.getShape().equals("Arc")) {
+				shapePaste = new Arc(shapeCopy.getX() + COPY_OFFSET, shapeCopy.getY() + COPY_OFFSET,
+						shapeCopy.getWidth(), shapeCopy.getHeight(), shapeCopy.getColor(), shapeCopy.getShape());
+			} else if (Officer.getShape().equals("Line")) {
+				shapePaste = new Line(shapeCopy.getX() + COPY_OFFSET, shapeCopy.getY() + COPY_OFFSET,
+						shapeCopy.getWidth(), shapeCopy.getHeight(), shapeCopy.getColor(), shapeCopy.getShape());
+			}
+		}
+		if (shapePaste != null) {
+			shapeCopy.setX(shapeCopy.getX() + COPY_OFFSET);
+			shapeCopy.setY(shapeCopy.getY() + COPY_OFFSET);
+			getShapeStack().push(shapePaste);
+			Officer.tellYourBoss();
 		}
 	}
 }

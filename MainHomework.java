@@ -1,5 +1,6 @@
 package javiergs.gui.paint.gamma;
 import javax.swing.*;
+import java.awt.event.*;
 import javax.tools.Tool;
 
 
@@ -22,6 +23,9 @@ public class MainHomework extends JFrame {
 		drawPanel.addMouseListener(mouseNanny);
 		drawPanel.addMouseMotionListener(mouseNanny);
 		Officer.setDrawPanel(drawPanel);
+
+		KeyboardNanny keyboardNanny = new KeyboardNanny();
+		addKeyListener(keyboardNanny);
 
 		JMenuBar menuBar = new JMenuBar();
 		StatusMenu statusMenu = new StatusMenu("Status");
