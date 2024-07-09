@@ -10,9 +10,9 @@ import java.util.Stack;
  * Officer is a class that holds the data of the drawing application.
  * And communicates to the DrawPanel when a repaint is needed.
  *
- * @author Nashali Vicente Lopez
+ * @author Grant Robertson
  * @author Veer Bhagia
- * @author Grant Robinson
+ * @author Nashali Vicente Lopez
  * @version 1.0
  */
 public class Officer {

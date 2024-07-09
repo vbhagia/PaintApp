@@ -26,6 +26,8 @@ public class MainHomework extends JFrame {
 		FileMenu fileMenu = new FileMenu();
 		StatusMenu statusMenu = new StatusMenu("Status");
 		ToolMenu toolMenu = new ToolMenu();
+		JMenuItem aboutButton = new JMenuItem("About Me");
+		aboutButton.addActionListener(new ActionNanny());
 
 		menuBar.add(fileMenu);
 		menuBar.add(statusMenu);

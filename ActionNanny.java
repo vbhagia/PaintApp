@@ -9,6 +9,9 @@ import javax.swing.JRadioButtonMenuItem;
 import java.io.File;
 import java.io.IOException;
 
+/** @author Grant Robinson
+ *  @author Nashali Vincente Lopez **/
+
 public class ActionNanny implements ActionListener {
 	public ActionNanny() {
 	}
@@ -49,6 +52,8 @@ public class ActionNanny implements ActionListener {
 			save();
 		} else if (e.getActionCommand().equals("Load")) {
 			load();
+		} else if (e.getActionCommand().equals("About Me")) {
+			showAbout();
 		}
 	}
 
@@ -78,6 +83,19 @@ public class ActionNanny implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Error loading file: " + ex.getMessage());
 			}
 		}
+	}
+
+	private void showAbout() {
+		String aboutMessage = "This is a simple paint application. \n\n"
+				+ "Instructions:\n"
+				+ "1. Choose a color from the 'Status' menu.\n"
+				+ "2. Select a shape from the 'Tool' menu.\n"
+				+ "3. Click and drag on the drawing area to draw the selected shape.\n"
+				+ "4. Use 'Undo' and 'Redo' to correct mistakes.\n"
+				+ "5. Use 'Clear' to clear the drawing area.\n"
+				+ "6. Use 'Save' to save your drawing to a file.\n"
+				+ "7. Use 'Load' to load a previously saved drawing.";
+		JOptionPane.showMessageDialog(null, aboutMessage, "About PaintApp", JOptionPane.INFORMATION_MESSAGE);
 	}
 }
 
